@@ -6,7 +6,9 @@ const app = Fastify({
     logger: true
 })
 
-app.register(cors);
+app.register(cors, {
+    origin: true
+});
 app.register(appRoutes);
 
 app.listen({
