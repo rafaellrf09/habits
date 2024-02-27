@@ -11,10 +11,10 @@ app.register(cors, {
 });
 app.register(appRoutes);
 
-app.listen({
-    port: 3333
-}).then(() => {
-    app.log.info("Server Running on port 3333");
-}).catch((err) => {
-    app.log.error(err);
-})
+app.listen({ port: 3333, host: '0.0.0.0' }, (err, address) => {
+    if (err) {
+        console.error(err);
+        process.exit(1);
+    }
+    console.info(`Server listening on ${address}`);
+});
